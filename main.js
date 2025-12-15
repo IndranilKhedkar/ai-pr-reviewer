@@ -17,8 +17,8 @@ const app = express();
 app.use(express.json());
 
 console.log(Object.keys(process.env).join(""));
-console.log(Object.keys(process.env.GCP_PROJECT_ID));
-console.log(Object.keys(process.env.GCP_REGION));
+console.log("GCP_PROJECT_ID", process.env.GCP_PROJECT_ID);
+console.log("GCP_REGION", process.env.GCP_REGION);
 
 app.get("/api/health-check", async (req, res) => {
   res.json({ message: "OK ✔️" });
