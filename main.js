@@ -54,6 +54,8 @@ app.listen(PORT, () => {
 async function doPrReview(repo, prId) {
   const prDetails = await fetchPR(repo, prId);
 
+  console.log("prDetails", prDetails);
+
   // 1. Load PR metadata
   var prMetadata = getPrMetadata(prDetails);
 

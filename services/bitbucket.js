@@ -15,6 +15,8 @@ export async function makeBitBucketRequest(method, url, data) {
         validateStatus: () => true,
       });
 
+      console.log(resp.status, resp.data);
+
       if (resp.status >= 200 && resp.status < 300) return resp;
 
       if (resp.status === 429 || resp.status >= 500) {
@@ -26,7 +28,7 @@ export async function makeBitBucketRequest(method, url, data) {
 
       return resp;
     } catch (err) {
-      console.error(`Error on attempt ${attempt}:`, err.message);
+      console.log(`Error on attempt ${attempt}:`, err.message);
       if (attempt === 5) throw err;
       await new Promise((r) => setTimeout(r, backoff));
       backoff *= 2;
@@ -188,6 +190,7 @@ function getTheAccessToken(repoName) {
 }
 
 function getHeaders(accessToken) {
+  console.log(accessToken);
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${accessToken}`,
