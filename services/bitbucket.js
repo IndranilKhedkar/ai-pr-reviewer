@@ -196,6 +196,6 @@ function getHeaders(accessToken) {
 function extractRepoName(urlString) {
   const url = new URL(urlString);
   const parts = url.pathname.split("/");
-
+  console.log(`Repository Name : ${parts[4]}`);
   return parts[4];
 }

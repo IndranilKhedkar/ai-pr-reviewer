@@ -1,5 +1,4 @@
 import "dotenv/config";
-import axios from "axios";
 import express from "express";
 import { getPrMetadata } from "./utils/prMetadata.js";
 import {
@@ -17,17 +16,15 @@ const app = express();
 
 app.use(express.json());
 
-axios.defaults.headers.common = {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${process.env.BITBUCKET_TOKEN}`,
-};
-
 app.get("/api/health-check", async (req, res) => {
   res.json({ message: "OK ✔️" });
 });
 
 app.post("/api/webhook/pr", async (req, res) => {
   const event = req.headers["x-event-key"];
+
+  console.log(`Received Bitbucket webhook: ${event}`);
+  console.log(JSON.stringify(req.body, null, 2));
 
   if (event === "pullrequest:created") {
     const pr = req.body.pullrequest;
@@ -39,10 +36,7 @@ app.post("/api/webhook/pr", async (req, res) => {
     console.log(`Author: ${pr.author.display_name}`);
     console.log(`URL: ${pr.links.html.href}`);
 
-    await doPrReview(
-      req.body?.repository?.full_name,
-      req.body?.pullrequest?.id
-    );
+    await doPrReview(repo?.full_name, pr?.id);
   }
 
   res.json({ message: `${event} webhook received.` }).status(200);
