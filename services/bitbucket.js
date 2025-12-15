@@ -26,6 +26,7 @@ export async function makeBitBucketRequest(method, url, data) {
 
       return resp;
     } catch (err) {
+      console.error(`Error on attempt ${attempt}:`, err.message);
       if (attempt === 5) throw err;
       await new Promise((r) => setTimeout(r, backoff));
       backoff *= 2;
@@ -135,7 +136,7 @@ export async function postReviewComments(data, comments, existingCommentsSet) {
     const formatted = formatComment(fp, severity, comment);
 
     // post comment
-    await bbRequest("POST", url, {
+    await makeBitBucketRequest("POST", url, {
       content: { raw: formatted },
       inline: { path: file, to: line },
     });
@@ -196,6 +197,6 @@ function getHeaders(accessToken) {
 function extractRepoName(urlString) {
   const url = new URL(urlString);
   const parts = url.pathname.split("/");
-  console.log(`Repository Name : ${parts[4]}`);
+  console.log(`URL : ${urlString}, Repository Name : ${parts[4]}`);
   return parts[4];
 }
