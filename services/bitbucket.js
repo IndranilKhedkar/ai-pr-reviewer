@@ -11,7 +11,7 @@ export async function makeBitBucketRequest(method, url, data) {
         method,
         url,
         data,
-        headers: getHeaders(getTheAccessToken(repoName)),
+        headers: getHeaders(repoName),
         validateStatus: () => true,
       });
 
@@ -187,6 +187,7 @@ function truncateWithEllipsis(str, maxLength) {
 
 function getTheAccessToken(repoName) {
   console.log(
+    "getTheAccessToken",
     `BITBUCKET_ACCESS_TOKEN_${repoName.replace("-", "_").toUpperCase()}`
   );
   return process.env[
@@ -194,8 +195,9 @@ function getTheAccessToken(repoName) {
   ];
 }
 
-function getHeaders(accessToken) {
-  console.log(accessToken);
+function getHeaders(repoName) {
+  const accessToken = getTheAccessToken(repoName);
+  console.log("accessToken", accessToken);
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${accessToken}`,
