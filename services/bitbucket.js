@@ -188,10 +188,10 @@ function truncateWithEllipsis(str, maxLength) {
 function getTheAccessToken(repoName) {
   console.log(
     "getTheAccessToken",
-    `BITBUCKET_ACCESS_TOKEN_${repoName.replace("-", "_").toUpperCase()}`
+    `BITBUCKET_ACCESS_TOKEN_${repoName.replaceAll("-", "_").toUpperCase()}`
   );
   return process.env[
-    `BITBUCKET_ACCESS_TOKEN_${repoName.replace("-", "_").toUpperCase()}`
+    `BITBUCKET_ACCESS_TOKEN_${repoName.replaceAll("-", "_").toUpperCase()}`
   ];
 }
 
