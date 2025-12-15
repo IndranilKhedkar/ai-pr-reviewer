@@ -186,7 +186,12 @@ function truncateWithEllipsis(str, maxLength) {
 }
 
 function getTheAccessToken(repoName) {
-  return process.env[`BITBUCKET_ACCESS_TOKEN_${repoName.toUpperCase()}`];
+  console.log(
+    `BITBUCKET_ACCESS_TOKEN_${repoName.replace("-", "_").toUpperCase()}`
+  );
+  return process.env[
+    `BITBUCKET_ACCESS_TOKEN_${repoName.replace("-", "_").toUpperCase()}`
+  ];
 }
 
 function getHeaders(accessToken) {
