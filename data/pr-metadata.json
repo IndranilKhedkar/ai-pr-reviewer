@@ -1,0 +1,256 @@
+{
+  "repository": {
+    "type": "repository",
+    "full_name": "tripstack/slack-pr-notifier",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier"
+      },
+      "html": {
+        "href": "https://bitbucket.org/tripstack/slack-pr-notifier"
+      },
+      "avatar": {
+        "href": "https://bytebucket.org/ravatar/%7B8af9816c-b614-47e8-86cd-ae02236492d8%7D?ts=nodejs"
+      }
+    },
+    "name": "slack-pr-notifier",
+    "scm": "git",
+    "website": null,
+    "owner": {
+      "display_name": "TripStack",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/%7B567a01f8-ceb4-45f1-89a5-20b2159dba13%7D"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/account/tripstack/avatar/"
+        },
+        "html": {
+          "href": "https://bitbucket.org/%7B567a01f8-ceb4-45f1-89a5-20b2159dba13%7D/"
+        }
+      },
+      "type": "team",
+      "uuid": "{567a01f8-ceb4-45f1-89a5-20b2159dba13}",
+      "username": "tripstack"
+    },
+    "workspace": {
+      "type": "workspace",
+      "uuid": "{567a01f8-ceb4-45f1-89a5-20b2159dba13}",
+      "name": "TripStack",
+      "slug": "tripstack",
+      "links": {
+        "avatar": {
+          "href": "https://bitbucket.org/workspaces/tripstack/avatar/?ts=1762532074"
+        },
+        "html": {
+          "href": "https://bitbucket.org/tripstack/"
+        },
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/tripstack"
+        }
+      }
+    },
+    "is_private": true,
+    "project": {
+      "type": "project",
+      "key": "PLAYG",
+      "uuid": "{27dc43b8-238c-4d71-8e8b-12c6ba6e8d29}",
+      "name": "Playground",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/workspaces/tripstack/projects/PLAYG"
+        },
+        "html": {
+          "href": "https://bitbucket.org/tripstack/workspace/projects/PLAYG"
+        },
+        "avatar": {
+          "href": "https://bitbucket.org/tripstack/workspace/projects/PLAYG/avatar/32?ts=1677001216"
+        }
+      }
+    },
+    "uuid": "{8af9816c-b614-47e8-86cd-ae02236492d8}",
+    "parent": null
+  },
+  "actor": {
+    "display_name": "indranil.khedkar",
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/users/%7Bb8677285-dc91-409f-9325-c620d31ca8c2%7D"
+      },
+      "avatar": {
+        "href": "https://secure.gravatar.com/avatar/1c48f2f3eed8632638e13ef665648030?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FI-4.png"
+      },
+      "html": {
+        "href": "https://bitbucket.org/%7Bb8677285-dc91-409f-9325-c620d31ca8c2%7D/"
+      }
+    },
+    "type": "user",
+    "uuid": "{b8677285-dc91-409f-9325-c620d31ca8c2}",
+    "account_id": "712020:b6568b65-1f9c-4f22-954c-ee4e3e5681fa",
+    "nickname": "indranil.khedkar"
+  },
+  "pullrequest": {
+    "comment_count": 0,
+    "task_count": 0,
+    "type": "pullrequest",
+    "id": 30,
+    "title": "geminiCodeReview.js edited online with Bitbucket",
+    "description": "geminiCodeReview.js edited online with Bitbucket",
+    "rendered": {
+      "title": {
+        "type": "rendered",
+        "raw": "geminiCodeReview.js edited online with Bitbucket",
+        "markup": "markdown",
+        "html": "<p>geminiCodeReview.js edited online with Bitbucket</p>"
+      },
+      "description": {
+        "type": "rendered",
+        "raw": "geminiCodeReview.js edited online with Bitbucket",
+        "markup": "markdown",
+        "html": "<p>geminiCodeReview.js edited online with Bitbucket</p>"
+      }
+    },
+    "state": "OPEN",
+    "draft": false,
+    "merge_commit": null,
+    "close_source_branch": false,
+    "closed_by": null,
+    "author": {
+      "display_name": "indranil.khedkar",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/users/%7Bb8677285-dc91-409f-9325-c620d31ca8c2%7D"
+        },
+        "avatar": {
+          "href": "https://secure.gravatar.com/avatar/1c48f2f3eed8632638e13ef665648030?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FI-4.png"
+        },
+        "html": {
+          "href": "https://bitbucket.org/%7Bb8677285-dc91-409f-9325-c620d31ca8c2%7D/"
+        }
+      },
+      "type": "user",
+      "uuid": "{b8677285-dc91-409f-9325-c620d31ca8c2}",
+      "account_id": "712020:b6568b65-1f9c-4f22-954c-ee4e3e5681fa",
+      "nickname": "indranil.khedkar"
+    },
+    "reason": "",
+    "created_on": "2025-12-11T15:52:23.410287+00:00",
+    "updated_on": "2025-12-11T15:52:23.845180+00:00",
+    "destination": {
+      "branch": {
+        "name": "main"
+      },
+      "commit": {
+        "hash": "e5f9912425ca",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/commit/e5f9912425ca"
+          },
+          "html": {
+            "href": "https://bitbucket.org/tripstack/slack-pr-notifier/commits/e5f9912425ca"
+          }
+        },
+        "type": "commit"
+      },
+      "repository": {
+        "type": "repository",
+        "full_name": "tripstack/recipes-test-e2e-suite-base",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier"
+          },
+          "html": {
+            "href": "https://bitbucket.org/tripstack/slack-pr-notifier"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7B8af9816c-b614-47e8-86cd-ae02236492d8%7D?ts=nodejs"
+          }
+        },
+        "name": "slack-pr-notifier",
+        "uuid": "{8af9816c-b614-47e8-86cd-ae02236492d8}"
+      }
+    },
+    "source": {
+      "branch": {
+        "name": "feature/API-15542-Enhance-GetAncillary-Assertions",
+        "links": {},
+        "sync_strategies": ["merge_commit", "rebase"]
+      },
+      "commit": {
+        "hash": "af7059d",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/commit/380e385d0df5"
+          },
+          "html": {
+            "href": "https://bitbucket.org/tripstack/slack-pr-notifier/commits/380e385d0df5"
+          }
+        },
+        "type": "commit"
+      },
+      "repository": {
+        "type": "repository",
+        "full_name": "tripstack/recipes-test-e2e-suite-base",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier"
+          },
+          "html": {
+            "href": "https://bitbucket.org/tripstack/slack-pr-notifier"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7B8af9816c-b614-47e8-86cd-ae02236492d8%7D?ts=nodejs"
+          }
+        },
+        "name": "slack-pr-notifier",
+        "uuid": "{8af9816c-b614-47e8-86cd-ae02236492d8}"
+      }
+    },
+    "reviewers": [],
+    "participants": [],
+    "links": {
+      "self": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3"
+      },
+      "html": {
+        "href": "https://bitbucket.org/tripstack/slack-pr-notifier/pull-requests/3"
+      },
+      "commits": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/commits"
+      },
+      "approve": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/approve"
+      },
+      "request-changes": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/request-changes"
+      },
+      "diff": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/diff/tripstack/slack-pr-notifier:380e385d0df5%0De5f9912425ca?from_pullrequest_id=3&topic=true"
+      },
+      "diffstat": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/diffstat/tripstack/slack-pr-notifier:380e385d0df5%0De5f9912425ca?from_pullrequest_id=3&topic=true"
+      },
+      "comments": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/comments"
+      },
+      "activity": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/activity"
+      },
+      "merge": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/merge"
+      },
+      "decline": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/decline"
+      },
+      "statuses": {
+        "href": "https://api.bitbucket.org/2.0/repositories/tripstack/slack-pr-notifier/pullrequests/3/statuses"
+      }
+    },
+    "summary": {
+      "type": "rendered",
+      "raw": "geminiCodeReview.js edited online with Bitbucket",
+      "markup": "markdown",
+      "html": "<p>geminiCodeReview.js edited online with Bitbucket</p>"
+    }
+  }
+}
