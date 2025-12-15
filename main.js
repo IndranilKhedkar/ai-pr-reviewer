@@ -1,4 +1,4 @@
-import "dotenv/config";
+// import "dotenv/config";
 import express from "express";
 import { getPrMetadata } from "./utils/prMetadata.js";
 import {
@@ -16,7 +16,9 @@ const app = express();
 
 app.use(express.json());
 
-console.log(Object.keys(process.env));
+console.log(Object.keys(process.env).join(""));
+console.log(Object.keys(process.env.GCP_PROJECT_ID));
+console.log(Object.keys(process.env.GCP_REGION));
 
 app.get("/api/health-check", async (req, res) => {
   res.json({ message: "OK ✔️" });
