@@ -16,6 +16,8 @@ const app = express();
 
 app.use(express.json());
 
+console.log(Object.keys(process.env));
+
 app.get("/api/health-check", async (req, res) => {
   res.json({ message: "OK ✔️" });
 });
