@@ -16,31 +16,26 @@ const app = express();
 
 app.use(express.json());
 
-console.log(Object.keys(process.env).join(""));
-console.log("GCP_PROJECT_ID", process.env.GCP_PROJECT_ID);
-console.log("GCP_REGION", process.env.GCP_REGION);
-
 app.get("/api/health-check", async (req, res) => {
-  res.json({ message: "OK ✔️" });
+  res.json({ message: "Ok ✔️" });
 });
 
 app.post("/api/webhook/pr", async (req, res) => {
   const event = req.headers["x-event-key"];
 
   console.log(`Received Bitbucket webhook: ${event}`);
-  console.log(JSON.stringify(req.body, null, 2));
 
   if (event === "pullrequest:created") {
     const pr = req.body.pullrequest;
     const repo = req.body.repository;
 
-    console.log("New Pull Request Created!");
+    console.log(`New Pull Request Created!`);
     console.log(`Repo: ${repo.full_name}`);
     console.log(`Title: ${pr.title}`);
     console.log(`Author: ${pr.author.display_name}`);
     console.log(`URL: ${pr.links.html.href}`);
 
-    await doPrReview(repo?.full_name, pr?.id);
+    await doPrReview(repo.full_name, pr.id);
   }
 
   res.json({ message: `${event} webhook received.` }).status(200);
@@ -52,21 +47,20 @@ app.post("/api/review/pr", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`AI reviewer listening on port ${PORT}`);
+  console.log(`AI PR reviewer listening on port ${PORT}`);
 });
 
 async function doPrReview(repo, prId) {
+  // 1. Fetch PR details
   const prDetails = await fetchPR(repo, prId);
 
-  console.log("prDetails", prDetails);
-
-  // 1. Load PR metadata
+  // 2. Load PR metadata
   var prMetadata = getPrMetadata(prDetails);
 
-  // 2. Load PR diff
+  // 3. Load PR diff
   prMetadata.diff = await fetchPrDiff(prMetadata.repoSrc, prMetadata.prId);
   if (!prMetadata.diff) {
-    console.log("No diff detected — exiting.");
+    console.log("No diff detected");
     return;
   }
 
@@ -74,27 +68,27 @@ async function doPrReview(repo, prId) {
     `PR ID=${prMetadata.prId}\nSource=${prMetadata.repoSrc}@${prMetadata.srcBranch}\nDestination=${prMetadata.repoDst}@${prMetadata.dstBranch}`
   );
 
-  // 3. Load existing comments
+  // 4. Load existing comments
   const existingCommentsSet = await fetchPrComments(
     prMetadata.repoSrc,
     prMetadata.prId
   );
 
-  // 4. Load prompt
+  // 5. Load prompt
   const { prompt, genCfg } = loadPrompt(prMetadata);
 
-  // 5. Generate review comments
+  // 6. Generate review comments
   const aiJson = await fetchPrReviewComments(prompt, genCfg);
   const reviewComments = aiJson.reviewComments ?? aiJson;
 
-  // 6. Post inline comments
+  // 7. Post inline comments
   const { annotations, hasCriticalIssue } = await postReviewComments(
     prMetadata,
     reviewComments,
     existingCommentsSet
   );
 
-  // 7. Upload Code Insights (report + annotations)
+  // 8. Upload Code Insights (report + annotations)
   await uploadCodeInsights(prMetadata, annotations);
 
   // 9. Fail build on critical issues

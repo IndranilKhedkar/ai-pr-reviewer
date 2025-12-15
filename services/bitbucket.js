@@ -15,8 +15,6 @@ export async function makeBitBucketRequest(method, url, data) {
         validateStatus: () => true,
       });
 
-      console.log(resp.status, resp.data);
-
       if (resp.status >= 200 && resp.status < 300) return resp;
 
       if (resp.status === 429 || resp.status >= 500) {
@@ -28,7 +26,7 @@ export async function makeBitBucketRequest(method, url, data) {
 
       return resp;
     } catch (err) {
-      console.log(`Error on attempt ${attempt}:`, err.message);
+      console.error(`Error on attempt ${attempt}:`, err.message);
       if (attempt === 5) throw err;
       await new Promise((r) => setTimeout(r, backoff));
       backoff *= 2;
@@ -186,10 +184,6 @@ function truncateWithEllipsis(str, maxLength) {
 }
 
 function getTheAccessToken(repoName) {
-  console.log(
-    "getTheAccessToken",
-    `BITBUCKET_ACCESS_TOKEN_${repoName.replaceAll("-", "_").toUpperCase()}`
-  );
   return process.env[
     `BITBUCKET_ACCESS_TOKEN_${repoName.replaceAll("-", "_").toUpperCase()}`
   ];
@@ -197,7 +191,6 @@ function getTheAccessToken(repoName) {
 
 function getHeaders(repoName) {
   const accessToken = getTheAccessToken(repoName);
-  console.log("accessToken", accessToken);
   return {
     "Content-Type": "application/json",
     Authorization: `Bearer ${accessToken}`,
@@ -207,6 +200,5 @@ function getHeaders(repoName) {
 function extractRepoName(urlString) {
   const url = new URL(urlString);
   const parts = url.pathname.split("/");
-  console.log(`URL : ${urlString}, Repository Name : ${parts[4]}`);
   return parts[4];
 }
